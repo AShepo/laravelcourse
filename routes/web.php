@@ -16,10 +16,13 @@ use App\Http\Controllers\Categories;
 
 Route::get('/categories', [ Categories::class, 'index' ]);
 Route::get('/categories/create', [ Categories::class, 'create' ]);
-Route::get('/categories/edit/{id}', [ Categories::class, 'edit' ]);
-Route::get('/categories/remove/{id}', [ Categories::class, 'remove' ]);
-Route::get('/categories/{id}', [ Categories::class, 'show' ]);
+Route::get('/categories/{id}/edit', [ Categories::class, 'edit' ]);
+Route::get('/categories/{id}/remove', [ Categories::class, 'remove' ]);
+Route::get('/categories/{slug}', [ Categories::class, 'show' ]);
+Route::get('/trash', [ Categories::class, 'trash' ]);
+Route::get('/trash/{slug}', [ Categories::class, 'showTrash' ]);
 
 Route::post('/categories', [ Categories::class, 'store' ]);
-Route::post('/categories/update/{id}', [ Categories::class, 'update' ]);
-Route::post('/categories/delete/{id}', [ Categories::class, 'delete' ]);
+Route::put('/categories/{id}/update', [ Categories::class, 'update' ]);
+Route::delete('/categories/{id}/delete', [ Categories::class, 'delete' ]);
+Route::get('/trash/{id}/restore', [ Categories::class, 'restoreTrash' ]);

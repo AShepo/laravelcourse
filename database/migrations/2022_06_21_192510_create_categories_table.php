@@ -18,6 +18,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title', 256);
             $table->text('content');
+            $table->string('slug', 64);
+            $table->softDeletes();
         });
     }
 
